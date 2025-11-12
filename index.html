@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>League Cards</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="inner">
+      <div class="brand">LoL Library</div>
+      <nav class="nav">
+        <a href="#champions">Champions</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-btn" aria-label="Meny">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- HERO / BANNER -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Build your champion roster</h1>
+      <p>Snabba kort med roll, region och kort beskrivning – perfekt för komponentbiblioteket.</p>
+      <a class="cta" href="#champions">Visa korten</a>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main id="champions">
+    <div class="container">
+      <!-- GAREN -->
+      <div class="card">
+        <div class="card-image">
+          <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg" alt="Garen">
+          <div class="tags"><div class="tag">Fighter</div><div class="tag">Demacia</div></div>
+        </div>
+        <div class="card-content">
+          <h3>Garen</h3>
+          <p>Demacias orubbliga svärd — symbol för styrka, disciplin och ära.</p>
+          <a href="https://www.leagueoflegends.com/en-gb/champions/garen/" target="_blank">Explore more</a>
+        </div>
+      </div>
+
+      <!-- DARIUS -->
+      <div class="card">
+        <div class="card-image">
+          <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Darius_0.jpg" alt="Darius">
+          <div class="tags"><div class="tag">Fighter</div><div class="tag">Noxus</div></div>
+        </div>
+        <div class="card-content">
+          <h3>Darius</h3>
+          <p>Noxus mest fruktade general. Ingen nåd, ingen tvekan — bara yxan.</p>
+          <a href="https://www.leagueoflegends.com/en-gb/champions/darius/" target="_blank">Explore more</a>
+        </div>
+      </div>
+
+      <!-- MORDEKAISER -->
+      <div class="card">
+        <div class="card-image">
+          <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Mordekaiser_0.jpg" alt="Mordekaiser">
+          <div class="tags"><div class="tag">Juggernaut</div><div class="tag">Shadow Isles</div></div>
+        </div>
+        <div class="card-content">
+          <h3>Mordekaiser</h3>
+          <p>Den odödlige härskaren som binder själar i evig tjänst inom Death Realm.</p>
+          <a href="https://www.leagueoflegends.com/en-gb/champions/mordekaiser/" target="_blank">Explore more</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER (enkel) -->
+  <footer id="about" class="site-footer">
+    <p>Byggd som CSS-komponentdemo. <a id="contact" href="#">Kontakt</a></p>
+  </footer>
+
+  <script>
+    // enkel mobilmeny
+    const btn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('.nav');
+    btn.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+</body>
+</html>

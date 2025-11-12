@@ -1,0 +1,330 @@
+/* ====== RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====== VARIABLER ====== */
+:root {
+  --bg: #0a0d14;
+  --bg-accent: #101726;
+  --ink: #e8ecf6;
+  --muted: #a8b0c2;
+  --brand: #3aa6ff;
+  --radius: 14px;
+}
+
+/* ====== BODY (bakgrund & text) ====== */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(58,166,255,.08), transparent 60%),
+    radial-gradient(800px 400px at 85% 120%, rgba(30,60,150,.12), transparent 60%),
+    linear-gradient(180deg, #0b101a, #0a0d14);
+  margin: 0;
+}
+
+/* ====== HEADER ====== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(10,13,20,.6);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.site-header .inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: .8rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: .3px;
+  color: var(--brand);
+}
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: .4rem .6rem;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+.nav a:hover {
+  color: var(--ink);
+  background: rgba(255,255,255,.06);
+}
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+/* ====== HERO / BANNER ====== */
+.hero {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(58,166,255,.18), rgba(58,166,255,0) 60%),
+    url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Demacia_0.jpg') center/cover no-repeat,
+    linear-gradient(180deg, #0b101a, #0b101a);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,.45));
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 5rem 1rem 4rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: .6rem;
+}
+.hero p {
+  color: var(--muted);
+  max-width: 60ch;
+  margin-bottom: 1rem;
+}
+.cta {
+  display: inline-block;
+  background: var(--brand);
+  color: #06101a;
+  font-weight: 800;
+  padding: .7rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(58,166,255,.35);
+  transition: 0.25s;
+}
+.cta:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* ====== MOBILMENY ====== */
+@media (max-width: 720px) {
+  .nav {
+    position: absolute;
+    right: 1rem;
+    top: 64px;
+    background: rgba(10,13,20,.95);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 12px;
+    padding: .6rem;
+    display: none;
+    flex-direction: column;
+  }
+  .nav.open {
+    display: flex;
+  }
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* ====== MAIN ====== */
+main {
+  padding: 2rem 1rem;
+}
+
+/* ====== CONTAINER ====== */
+.container {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ====== CARD ====== */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  flex: 1 1 calc((100% - 32px) / 3);
+  max-width: 400px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* === Glöd per region === */
+.card:nth-child(1):hover {
+  box-shadow: 0 0 20px 4px rgba(46, 134, 193, 0.5); /* Demacia */
+}
+.card:nth-child(2):hover {
+  box-shadow: 0 0 20px 4px rgba(199, 0, 0, 0.5); /* Noxus */
+}
+.card:nth-child(3):hover {
+  box-shadow: 0 0 20px 4px rgba(0, 180, 100, 0.45); /* Shadow Isles */
+}
+
+/* ====== CARD IMAGE ====== */
+.card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Anpassad höjd */
+.card:nth-child(1) .card-image { height: 420px; }
+.card:nth-child(2) .card-image { height: 420px; }
+.card:nth-child(3) .card-image { height: 440px; }
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Fokuspunkt per bild */
+.card:nth-child(1) .card-image img { object-position: 70% 40%; }
+.card:nth-child(2) .card-image img { object-position: 45% 40%; }
+.card:nth-child(3) .card-image img { object-position: 55% 35%; }
+
+/* Zoom-effekt */
+.card:hover .card-image img {
+  transform: scale(1.08);
+}
+
+/* Gradient över bilder */
+.card-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.05)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ====== TAGS ====== */
+.card-image .tags {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+/* Basstil */
+.card-image .tag {
+  font-size: 12px;
+  color: white;
+  border: none;
+  padding: 4px 16px;
+  border-radius: 100px;
+  font-weight: 700;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.6),
+    0 0 6px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
+  letter-spacing: 0.3px;
+}
+
+/* === Färg per tagg === */
+.tag:contains("Fighter"),
+.tag:has-text("Fighter") {
+  background: linear-gradient(135deg, #e63946, #b51717);
+  color: #fff3f3;
+}
+.tag:contains("Juggernaut"),
+.tag:has-text("Juggernaut") {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: #eaffea;
+}
+.tag:contains("Demacia"),
+.tag:has-text("Demacia") {
+  background: linear-gradient(135deg, #5dade2, #2e86c1);
+  color: #eaf3ff;
+}
+.tag:contains("Noxus"),
+.tag:has-text("Noxus") {
+  background: linear-gradient(135deg, #d72638, #821d30);
+  color: #fff3f3;
+}
+.tag:contains("Shadow Isles"),
+.tag:has-text("Shadow Isles") {
+  background: linear-gradient(135deg, #0f9b0f, #003300);
+  color: #eaffea;
+}
+
+/* Hover-effekt på taggar */
+.card-image .tag:hover {
+  filter: brightness(1.2);
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(255, 255, 255, 0.4);
+  transition: 0.25s ease;
+}
+
+/* ====== CONTENT ====== */
+.card-content {
+  padding: 20px;
+}
+.card-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #0c1422;
+}
+.card-content p {
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 16px;
+  color: #172435;
+}
+.card-content a {
+  font-weight: 500;
+  font-size: 12px;
+  color: #092131;
+  text-decoration: none;
+}
+.card-content a:hover {
+  text-decoration: underline;
+}
+
+/* ====== FOOTER ====== */
+.site-footer {
+  max-width: 1240px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px) {
+  .card { flex: 1 1 calc((100% - 16px) / 2); }
+  .card-image { height: 320px; }
+}
+@media (max-width: 640px) {
+  .card { flex: 1 1 100%; max-width: 500px; }
+  .card-image { height: 260px; }
+}
